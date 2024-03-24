@@ -20,16 +20,13 @@ def gen_graph(s, t, n, max_weight):
                 edge_index += 1
                 edges_added[edge_key] = True
 
+    add_edge(s, t, 0)
+
     for v in range(n):
         while len(graph[v]) < 2:
             new_neighbour = randint(0, n - 1)
             edge_weight = randint(1, max_weight)
             add_edge(v, new_neighbour, edge_weight)
 
-    for row in graph:
-        print(row, graph[row])
-
     return graph
 
-
-show_graph(0, 1, gen_graph(0, 1, 17, 5), False)

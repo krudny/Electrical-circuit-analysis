@@ -10,8 +10,8 @@ def show_graph(s, t, graph, directed):
     net.add_edge(s, t, color="red", label=f"electromotive force")
 
     for v in graph:
-        for edge_index, u, weight in graph[v]:
-            net.add_edge(v, u, label=f"W={weight}, X={edge_index}")
+        for edge_index, u, edge_weight in graph[v]:
+            net.add_edge(v, u, label=f"({edge_index}, {edge_weight})")
 
 
 
