@@ -10,11 +10,6 @@ def find_cycles(graph):
     cycles = set()
     result = []
 
-    def check_electromotive_force():
-        for cycle in result:
-            if 0 not in cycle:
-                result.remove(cycle)
-
     def dfs_visit(v, path_vertices, path_edges):
         visited.add(v)
 
@@ -22,11 +17,12 @@ def find_cycles(graph):
             if u in path_vertices and parent[v] != u:  # cycle detected
                 cycle_start = find_index(path_vertices, u)  # searching for cycle start
                 curr_cycle = path_vertices[cycle_start:]  # extracting cycle
+                curr_path_edges = path_edges[cycle_start:]
                 sorted_cycle = tuple(sorted(curr_cycle))
 
                 if sorted_cycle not in cycles:  # checking if cycle was not detected previously
                     cycles.add(sorted_cycle)
-                    result.append(path_edges + [edge_index])
+                    result.append(curr_cycle + [u])
 
             if u not in visited:
                 parent[u] = v
@@ -36,7 +32,6 @@ def find_cycles(graph):
         dfs_visit(v, [v], [])
         visited = set()
 
-    check_electromotive_force()
-
+    # check_electromotive_force()
     return result
 

@@ -1,7 +1,7 @@
 from pyvis.network import Network
 
 
-def show_graph(s, t, graph, directed):
+def show_graph(s, t, graph, directed, values):
     net = Network(directed=directed)
 
     for v in graph:
@@ -10,9 +10,9 @@ def show_graph(s, t, graph, directed):
     for v in graph:
         for edge_index, u, edge_weight in graph[v]:
             if v == s and u == t:
-                net.add_edge(s, t, color="red", label=f"electromotive force")
+                net.add_edge(s, t, color="red", label=f"electromotive force, {round(values[edge_index], 2)}")
             else:
-                net.add_edge(v, u, label=f"({edge_index}, {edge_weight})")
+                net.add_edge(v, u, label=f"({edge_index}, {edge_weight}, {round(values[edge_index], 2)}))")
 
 
 
