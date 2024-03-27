@@ -28,5 +28,5 @@ def gen_graph(s, t, n, max_weight):
             edge_weight = randint(1, max_weight)
             add_edge(v, new_neighbour, edge_weight)
 
-    return graph
+    return graph, edge_index
 

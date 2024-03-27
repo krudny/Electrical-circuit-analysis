@@ -7,6 +7,7 @@ def find_circuit_direction(s, t, graph):
     q = deque()
     q.append(t)
     directed_graph = {v: set() for v in range(len(graph))}
+    directed_graph[s].add((0, t, 0))
 
     while q:
         u = q.popleft()
@@ -14,7 +15,7 @@ def find_circuit_direction(s, t, graph):
 
         for edge_index, v, edge_weight in graph[u]:
             if v not in visited:
-                if v == s and u == t or v == t and u == s:
+                if (v == s and u == t) or (v == t and u == s):
                     continue
 
                 q.append(v)
