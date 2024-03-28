@@ -47,8 +47,6 @@ def solver(s, t, edges_count, n, undirected_graph, directed_graph, electromotive
 
     def second_kirchhoff_law():
         cycles = find_cycles(undirected_graph)
-        # cycles.sort(key=len)
-        print(cycles)
         if len(cycles) < (edges_count - n + 1):
             return 0
 
@@ -64,8 +62,6 @@ def solver(s, t, edges_count, n, undirected_graph, directed_graph, electromotive
                 else:
                     equations[eq][edge_index] = weight
 
-
-
             if check_electromotive_force(cycle):
                 values[eq] = electromotive_force
             eq += 1
@@ -73,14 +69,8 @@ def solver(s, t, edges_count, n, undirected_graph, directed_graph, electromotive
             if eq >= edges_count:
                 return 1
 
-
     def solve():
-        X = np.linalg.solve(equations, values)
-
-        for row in equations:
-            print(row)
-
-        print(values)
+        X = np.linalg.solve(np.array(equations), np.array(values))
 
         for i, value in enumerate(X):
             if value < 0 and i != 0:

@@ -32,6 +32,5 @@ def find_cycles(graph):
         dfs_visit(v, [v], [])
         visited = set()
 
-    # check_electromotive_force()
     return result
 
