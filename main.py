@@ -5,10 +5,10 @@ from solver import solver
 
 def main():
     s = 0
-    t = 7
-    n = 9
-    max_weight = 10
-    electromotive_force = 15
+    t = 1
+    n = 50
+    max_weight = 20
+    electromotive_force = 150
     undirected_graph, edges_count = gen_graph(s, t, n, max_weight)
     directed_graph = find_circuit_direction(s, t, undirected_graph)
 

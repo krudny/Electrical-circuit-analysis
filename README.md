@@ -12,6 +12,19 @@ Given number of vertices, electromotive force and maximum resistance, algorithm:
 - adds adjustments to find real direction of current flow
 - generates and displays network graph 
 
+## Example
+
+Given 12 nodes and 15V electromotive force between nodes 0, 1:
+![small graph](/images/example1.png)
+
+50 nodes and 150V electromotive force between nodes 0, 1:
+
+![medium graph](/images/example2.png)
+
+More complex computations are also possible. 
+
+
+
 ## Technologies used
 
 - Python 
