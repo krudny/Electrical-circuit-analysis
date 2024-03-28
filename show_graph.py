@@ -10,9 +10,9 @@ def show_graph(s, t, graph, directed, values):
     for v in graph:
         for edge_index, u, edge_weight in graph[v]:
             if v == s and u == t:
-                net.add_edge(s, t, color="red", label=f"electromotive force, {round(values[edge_index], 2)}")
+                net.add_edge(s, t, color="red", label=f"EF, I={round(values[edge_index], 2)}")
             else:
-                net.add_edge(v, u, label=f"({edge_index}, {edge_weight}, {round(values[edge_index], 2)}))")
+                net.add_edge(v, u, label=f"R={edge_weight}, I={round(values[edge_index], 2)}")
 
 
 
